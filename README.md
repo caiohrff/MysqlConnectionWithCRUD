@@ -1,11 +1,11 @@
 # MysqlConnectionWithCRUD
 To start this project, you need install:
 Nodemon, Mysql, body-parser, express in your vscode.
-Then your need install MysqlWorkbench in your computer(https://downloads.mysql.com/archives/workbench/)
+Then you need install Mysql workbench in your computer(https://downloads.mysql.com/archives/workbench/)
 
 -----------------------------------------------------
 
-Need this
+Need this in your database
 
 Use EmployeeDB;
 
