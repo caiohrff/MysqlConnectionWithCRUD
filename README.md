@@ -27,7 +27,7 @@ UNLOCK TABLES;
 
 
 If there is a problem connecting DB ...
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '@MYmysql05';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '@root';
 flush privileges;
 
 ------------------------------------------------------------------
