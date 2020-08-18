@@ -10,7 +10,9 @@ const mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'EmployeeDB'
+    database: 'EmployeeDB',
+    multipleStatements: true
+    
 })
 mysqlConnection.connect((err) =>{
     if(!err){
@@ -45,3 +47,51 @@ app.get('/employees/:id', (req, res)=>{
         }
     })
 }) 
+
+
+
+//DELETE an EMPLOYEES
+app.delete('/employees/:id', (req, res)=>{
+    mysqlConnection.query('DELETE FROM employee WHERE EmpID = ?',(req.params.id), (err, rows, fields)=>{
+        if(!err){
+            //console.log(rows[0].EmpID)
+            res.send('Delete sucessfully')
+        }else{
+            console.log(err)
+        }
+    })
+}) 
+
+
+//Insert an EMPLOYEES
+app.post('/employees', (req, res)=>{
+    let emp = req.body
+    const sql = "SET @EmpID = ?;SET @Name= ?;SET @EmpCode = ?; SET @Salary = ?; \
+     CALL EmployeeAddOrEdit(@EmpID, @Name, @EmpCode, @Salary);"
+    mysqlConnection.query(sql,[emp.EmpID, emp.Name, emp.EmpCode, emp.Salary], (err, rows, fields)=>{
+        if(!err){
+            rows.forEach(element =>{
+                if(element.constructor == Array){
+                    res.send('Inserted employee id: ' + element[0].EmpID)
+                }
+            })
+        }else{
+            console.log(err)
+        }
+    })
+})
+
+
+//Update an EMPLOYEES
+app.put('/employees', (req, res)=>{
+    let emp = req.body
+    const sql = "SET @EmpID = ?;SET @Name= ?;SET @EmpCode = ?; SET @Salary = ?; \
+     CALL EmployeeAddOrEdit(@EmpID, @Name, @EmpCode, @Salary);"
+    mysqlConnection.query(sql,[emp.EmpID, emp.Name, emp.EmpCode, emp.Salary], (err, rows, fields)=>{
+        if(!err){
+           res.send('Update sucessfully')
+        }else{
+            console.log(err)
+        }
+    })
+})
