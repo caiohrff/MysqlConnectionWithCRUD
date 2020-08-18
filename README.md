@@ -1,14 +1,6 @@
 # MysqlConnectionWithCRUD
-To start this project, you need:
--npm i -g nodemon;
--npm i mysql;
--npm i mysql;
--npm i express
-
------------------------------------------------------
-
-#OBS
-Ainda não finalizado e está atualizado(14/08/2020)
+To start this project, you need install:
+Nodemon, Mysql, body-parser, express
 
 -----------------------------------------------------
 
@@ -57,9 +49,9 @@ BEGIN
 		SET
 		Name = _Name,
 		EmpCode = _EmpCode,
-		Salary = _Salary,
+		Salary = _Salary
 		WHERE EmpID = _EmpID;
-	END IF
+	END IF;
 
-	SELECT _EmpID as 'EmpId'
+	SELECT _EmpID as 'EmpId';
 END
