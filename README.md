@@ -16,17 +16,21 @@ CREATE TABLE `employee` (
     PRIMARY KEY (`EmpID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+------------------------------------------------------------------
 
 LOCK TABLES `employee` WRITE;
 INSERT INTO `employee` VALUES (1, 'Gavin Cortez', 'EMP90', 265400),(2, 'Quinn Flynn', 'EMP94', 364600),(3, 'Doris Wilder', 'EMP06', 316400),(4, 'Hermione Butler', 'EMP965', 417500);
 UNLOCK TABLES;
+
+------------------------------------------------------------------
+#VERY IMPORTANT
 
 
 If there is a problem connecting DB ...
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '@MYmysql05';
 flush privileges;
 
-
+------------------------------------------------------------------
 
 
 
